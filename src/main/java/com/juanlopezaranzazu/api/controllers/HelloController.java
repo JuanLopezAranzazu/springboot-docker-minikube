@@ -12,6 +12,6 @@ public class HelloController {
 
     @GetMapping
     public ResponseDTO<String> hello() {
-        return new ResponseDTO<>("Hello World", null, 200);
+        return new ResponseDTO<>("Message sent successfully", "Hello World", 200);
     }
 }
