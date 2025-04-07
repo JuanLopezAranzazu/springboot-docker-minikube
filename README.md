@@ -18,3 +18,25 @@ Para generar el archivo JAR de tu proyecto, ejecuta el siguiente comando:
 ```sh
 mvn clean package
 ```
+
+## Iniciar Minikube
+```sh
+minikube start
+```
+
+## Aplicar Manifiestos
+```sh
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+## Verificar el estado de los pods y servicios
+```sh
+kubectl get pods
+kubectl get services
+```
+
+## Acceder a la App
+```sh
+minikube service api-service
+```
