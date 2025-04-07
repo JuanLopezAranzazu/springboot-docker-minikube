@@ -1,0 +1,40 @@
+Deployment:
+
+Levanta 1 réplica de tu contenedor.
+Usa la imagen que tú definas.
+Expone el puerto 8080.
+
+Service:
+
+Lo expone dentro del clúster y también fuera (gracias a NodePort).
+Mapea el puerto interno 8080 de tu app al puerto 30080 del host (puedes abrir: http://localhost:30080).
+
+******************************************************************************************************
+
+Pasos
+
+Generar el archivo JAR
+
+mvn clean package
+
+Levantar Imagen Docker
+
+docker build -t juanlopezaranzazu/api:latest .
+
+Iniciar Minikube
+
+minikube start
+
+Aplicar Manifiestos
+
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+Verificar que esten corriendo
+
+kubectl get pods
+kubectl get services
+
+Acceder a la App
+
+minikube service api-service
